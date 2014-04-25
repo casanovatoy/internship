@@ -29,14 +29,20 @@ public class UserServiceImpl implements UserService {
     public User save(User user) {
         return userRepository.save(user);
     }
+
     @Override
-    public void deleteByName(User user){
+    public void deleteByName(User user) {
         userRepository.delete(user);
     }
 
     @Override
+
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+    @Override
+    public List<User> findByNameLike(User user){
+        return userRepository.findByNameLike(user);
     }
 
 }

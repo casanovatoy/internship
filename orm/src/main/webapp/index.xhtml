@@ -16,14 +16,13 @@
         <script type="text/javascript" src="PrimefacesDialog.js">
         </script>
         <script type="text/javascript">
-            PrimefacesDialog.on('show', function(){
-                
+            PrimefacesDialog.on('show', function() {
+
             });
         </script>
     </h:head>
     <h:body>
         <p:growl id="notification" showDetail="true" showSummary="true"/>
-
         <h:form id="userForm">
             #{userController.reset()}
             <p:commandButton value="add User"
@@ -32,6 +31,7 @@
                              onsuccess="addWidgetDialog.show();"/>
             <br/>
             <br/>
+
             <p:dataTable value="#{userController.users}"
                          rowIndexVar="counter"
                          var="item">
