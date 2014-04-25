@@ -87,10 +87,9 @@ public class UserController implements Serializable {
 
     public void onDelete() {
         userService.deleteByName(user);
-//        this.getUsers().remove(user);
-
         showMessage(FacesMessage.SEVERITY_INFO, "delete user", "success");
     }
+
 
     private String requestParam(String paramName) {
         return FacesContext.getCurrentInstance()
