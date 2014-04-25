@@ -86,7 +86,8 @@ public class UserController implements Serializable {
     }
 
     public void onDelete() {
-        this.getUsers().remove(user);
+        userService.deleteByName(user);
+//        this.getUsers().remove(user);
 
         showMessage(FacesMessage.SEVERITY_INFO, "delete user", "success");
     }
