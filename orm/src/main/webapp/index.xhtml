@@ -123,6 +123,7 @@
                 <br/>
                 <p:commandButton value="save"
                                  update=":userForm, :notification"
+                                 actionListener="#{userController.onSave()}"
                                  oncomplete="editWidgetDialog.hide();"/>
                 <p:spacer width="10"/>
                 <p:commandButton value="cancel"
