@@ -30,8 +30,9 @@ public class UserController implements Serializable {
     private static final Logger LOG = Logger.getLogger(UserController.class.getName());
 
     private List<User> users;
+    private List<User> userFromSearch;
     private User user;
-    private String name;
+    private String keyword;
 
     private final UserService userService = JSFSpringUtils.getBean(UserService.class);
 
@@ -51,6 +52,13 @@ public class UserController implements Serializable {
     public User getUser() {
         return user;
     }
+     public List<User> getUserFromSearch() {
+        return userFromSearch;
+    }
+
+    public void setUserFromSearch(List<User> userFromSearch) {
+        this.userFromSearch = userFromSearch;
+    }
 
     public void setUser(User user) {
         this.user = user;
@@ -69,11 +77,11 @@ public class UserController implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return keyword;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.keyword = name;
     }
 
     public void onSave() {
@@ -101,8 +109,8 @@ public class UserController implements Serializable {
     }
 
     public List<User> onSearchUser() {
-       users = userService.findByNameLike(name);
-       return this.users;
+       userFromSearch = userService.findByNameLike(keyword);
+       return userFromSearch;
         
     }
 

@@ -26,29 +26,28 @@
 
         <h:form>
             <p:inputText value="#{userController.name}"/>
-            <p:commandButton update="displaySearchUser" actionListener="#{userController.onSearchUser()}" value="Search"/> 
-            <!--            <p:panel id="display" header="Information" style="margin-top:10px;">  -->
-            <p:dataTable id="displaySearchUser" value="#{userController.users}"
-                         var="mySearchUsers">
-                <p:column headerText="No." style="width : 5%">
-                    <h:outputText value="#{mySearchUsers.id}"></h:outputText>
-                </p:column>
-                <p:column headerText="name">
-                    <h:outputText value="#{mySearchUsers.name}"></h:outputText>
-                </p:column>
-
-                <p:column headerText="email">
-                    <h:outputText value="#{mySearchUsers.email}"></h:outputText>
-                </p:column>
-
-                <p:column headerText="phone">
-                    <h:outputText value="#{mySearchUsers.phone}"></h:outputText>
-                </p:column>
-
-            </p:dataTable>
-            <!--        </p:panel>  -->
+            <p:commandButton update=":displaySearchUser" actionListener="#{userController.onSearchUser()}" value="Search"/> 
         </h:form>
+        <h:form id="displaySearchUser">
+            <p:dataTable value="#{userController.userFromSearch}"
+                             var="mySearchUsers">
+                    <!--                <p:column headerText="No." style="width : 5%">
+                                        <h:outputText value="#{mySearchUsers.id}"></h:outputText>
+                                    </p:column>-->
+                    <p:column headerText="name">
+                        <h:outputText value="#{mySearchUsers.name}"></h:outputText>
+                    </p:column>
 
+                    <p:column headerText="email">
+                        <h:outputText value="#{mySearchUsers.email}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="phone">
+                        <h:outputText value="#{mySearchUsers.phone}"></h:outputText>
+                    </p:column>
+
+                </p:dataTable>
+        </h:form>
 
         <h:form id="userForm">
 
