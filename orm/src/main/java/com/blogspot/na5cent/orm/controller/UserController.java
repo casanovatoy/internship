@@ -102,7 +102,7 @@ public class UserController implements Serializable {
 
     public List<User> onSearchUser() {
        users = userService.findByNameLike(name);
-       return users;
+       return this.users;
         
     }
 
