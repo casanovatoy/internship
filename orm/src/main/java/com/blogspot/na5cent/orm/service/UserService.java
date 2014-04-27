@@ -18,7 +18,7 @@ public interface UserService {
 
     public void deleteByName(User user);
 
-    public List<User> findByNameLike(User user);
+    public List<User> findByNameLike(String user);
 
     public List<User> findAll();
 }

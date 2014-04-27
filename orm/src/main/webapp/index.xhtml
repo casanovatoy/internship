@@ -23,7 +23,16 @@
     </h:head>
     <h:body>
         <p:growl id="notification" showDetail="true" showSummary="true"/>
+
+        <h:form>
+            <p:messages showDetail="true"/> 
+            <p:inputText value="#{userController.name}"/>
+            <p:commandButton update=":userForm" actionListener="#{userController.onSearchUser()}" value="Search"/> 
+        </h:form>
+        
+        
         <h:form id="userForm">
+
             #{userController.reset()}
             <p:commandButton value="add User"
                              update=":addUserDialogForm"

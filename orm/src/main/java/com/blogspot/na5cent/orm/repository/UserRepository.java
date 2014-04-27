@@ -8,13 +8,11 @@ package com.blogspot.na5cent.orm.repository;
 import com.blogspot.na5cent.orm.model.User;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 /**
  *
  * @author anonymous
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
-    @Query("SELECT user FROM User user WHERE user.user ?user")
-    public List<User> findByNameLike(User user);
+    public List<User> findByNameLike(String user);
 }

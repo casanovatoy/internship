@@ -31,16 +31,9 @@ public class UserController implements Serializable {
 
     private List<User> users;
     private User user;
-    private String keyword;
+    private String name;
+
     private final UserService userService = JSFSpringUtils.getBean(UserService.class);
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
 
     @PostConstruct
     public void postContruct() {
@@ -75,6 +68,14 @@ public class UserController implements Serializable {
         this.users = users;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void onSave() {
         try {
             user = userService.save(user);
@@ -99,7 +100,9 @@ public class UserController implements Serializable {
         showMessage(FacesMessage.SEVERITY_INFO, "delete user", "success");
     }
 
-    public void onSearchUser() {
+    public List<User> onSearchUser() {
+       users = userService.findByNameLike(name);
+       return users;
         
     }
 
