@@ -30,7 +30,7 @@ public class UserController implements Serializable {
     private static final Logger LOG = Logger.getLogger(UserController.class.getName());
 
     private List<User> users;
-    private List<User> userFromSearch;
+    private List<User> userFromSearch = null;
     private User user;
     private String keyword;
 
@@ -76,12 +76,12 @@ public class UserController implements Serializable {
         this.users = users;
     }
 
-    public String getName() {
+    public String getKeyword() {
         return keyword;
     }
 
-    public void setName(String name) {
-        this.keyword = name;
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     public void onSave() {

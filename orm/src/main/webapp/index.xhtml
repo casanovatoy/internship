@@ -25,7 +25,7 @@
         <p:growl id="notification" showDetail="true" showSummary="true"/>
 
         <h:form>
-            <p:inputText value="#{userController.name}"/>
+            <p:inputText value="#{userController.keyword}"/>
             <p:commandButton update=":displaySearchUser" actionListener="#{userController.onSearchUser()}" value="Search"/> 
         </h:form>
         <h:form id="displaySearchUser">
