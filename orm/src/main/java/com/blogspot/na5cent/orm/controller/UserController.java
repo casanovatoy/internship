@@ -30,7 +30,6 @@ public class UserController implements Serializable {
     private static final Logger LOG = Logger.getLogger(UserController.class.getName());
 
     private List<User> users;
-    private List<User> userFromSearch;
     private User user;
     private String keyword;
 
@@ -51,14 +50,6 @@ public class UserController implements Serializable {
 
     public User getUser() {
         return user;
-    }
-
-    public List<User> getUserFromSearch() {
-        return userFromSearch;
-    }
-
-    public void setUserFromSearch(List<User> userFromSearch) {
-        this.userFromSearch = userFromSearch;
     }
 
     public void setUser(User user) {
@@ -110,8 +101,8 @@ public class UserController implements Serializable {
     }
 
     public List<User> onSearchUser() {
-        userFromSearch = userService.findByNameLike(keyword);
-        return userFromSearch;
+        users = userService.findByNameLike(keyword);
+        return users;
     }
 
     private String requestParam(String paramName) {

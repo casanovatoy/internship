@@ -15,32 +15,34 @@
         </script>
         <script type="text/javascript">
             PrimefacesDialog.on('show', function() {
-
             });
         </script>
     </h:head>
     <h:body>
-        <p:growl id="notification" showDetail="true" showSummary="true"/>
-        <h:form>
+        <p:growl id="notification" showDetail="true" showSummary="true"/>       
+        <h:form>             
             <p:inputText value="#{userController.keyword}"/>
-            <p:commandButton update="displaySearchUser" actionListener="#{userController.onSearchUser()}" value="Search"/> 
-
-                    <p:dataTable id="displaySearchUser" 
-                                 value="#{userController.userFromSearch}"
-                                 var="mySearchUsers">
-                        <p:column headerText="No." style="width : 5%">
-                            <h:outputText value="#{mySearchUsers.id}"></h:outputText>
-                        </p:column>
-                        <p:column headerText="name">
-                            <h:outputText value="#{mySearchUsers.name}"></h:outputText>
-                        </p:column>
-                        <p:column headerText="email">
-                            <h:outputText value="#{mySearchUsers.email}"></h:outputText>
-                        </p:column>
-                        <p:column headerText="phone">
-                            <h:outputText value="#{mySearchUsers.phone}"></h:outputText>
-                        </p:column>
-                    </p:dataTable>
+            <p:commandButton value="SEARCH"
+                             update=":search"
+                             actionListener="#{userController.onSearchUser()}"/>
+        </h:form> 
+        <br/>       
+        <h:form id="search" >
+            <p:dataTable value="#{userController.users}"
+                         var="mySearchUsers">
+                <p:column headerText="No." style="width : 5%">
+                    <h:outputText value="#{mySearchUsers.id}"></h:outputText>
+                </p:column>
+                <p:column headerText="name">
+                    <h:outputText value="#{mySearchUsers.name}"></h:outputText>
+                </p:column>
+                <p:column headerText="email">
+                    <h:outputText value="#{mySearchUsers.email}"></h:outputText>
+                </p:column>
+                <p:column headerText="phone">
+                    <h:outputText value="#{mySearchUsers.phone}"></h:outputText>
+                </p:column>
+            </p:dataTable>
         </h:form>
         <br/>
         <br/>
@@ -53,7 +55,6 @@
             <br/>
             <br/>
             <p:dataTable value="#{userController.users}"
-                         rowIndexVar="counter"
                          var="item">
                 <p:column headerText="No." style="width : 5%">
                     #{item.id}
